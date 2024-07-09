@@ -1,13 +1,26 @@
 window.addEventListener("DOMContentLoaded", domLoaded);
 
 function domLoaded() {
-   // TODO: Complete the function
+   document.getElementById("convertButton").addEventListener("click", function() {
+      const cInput = document.getElementById("cInput").value;
+      const fInput = document.getElementById("fInput").value;
+      
+      if (cInput !== "") {
+         const celsius = parseFloat(cInput);
+         const fahrenheit = convertCtoF(celsius);
+         document.getElementById("fInput").value = fahrenheit;
+      } else if (fInput !== "") {
+         const fahrenheit = parseFloat(fInput);
+         const celsius = convertFtoC(fahrenheit);
+         document.getElementById("cInput").value = celsius;
+      }
+   });
 }
 
 function convertCtoF(degreesCelsius) {
-   // TODO: Complete the function
+   return degreesCelsius * 9 / 5 + 32;
 }
 
 function convertFtoC(degreesFahrenheit) {
-   // TODO: Complete the function
+   return (degreesFahrenheit - 32) * 5 / 9;
 }
