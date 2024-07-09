@@ -1,10 +1,10 @@
 window.addEventListener("DOMContentLoaded", domLoaded);
 
 function domLoaded() {
-   document.getElementById("convertButton").addEventListener("click", function() {
+   document.getElementById("convertButton").addEventListener("click", function () {
       const cInput = document.getElementById("cInput").value;
       const fInput = document.getElementById("fInput").value;
-      
+
       if (cInput !== "") {
          const celsius = parseFloat(cInput);
          const fahrenheit = convertCtoF(celsius);
@@ -14,6 +14,14 @@ function domLoaded() {
          const celsius = convertFtoC(fahrenheit);
          document.getElementById("cInput").value = celsius;
       }
+   });
+
+   document.getElementById("cInput").addEventListener("input", function () {
+      document.getElementById("fInput").value = "";
+   });
+
+   document.getElementById("fInput").addEventListener("input", function () {
+      document.getElementById("cInput").value = "";
    });
 }
 
